@@ -1,0 +1,11 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo-image {
+  height: 48px; /* Регулюйте висоту під свій дизайн */
+  width: auto;
+  object-fit: contain;
+}

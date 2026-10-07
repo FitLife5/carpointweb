@@ -1,0 +1,23 @@
+.preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.preloader-video {
+  max-width: 320px;
+  width: 85%;
+  height: auto;
+  object-fit: contain;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  mix-blend-mode: multiply; /* Прибирає сірий/світлий фон та залишає відео на білому фоні */
+}

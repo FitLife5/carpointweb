@@ -5,7 +5,7 @@
 }
 
 .logo-image {
-  height: 48px; /* Регулюйте висоту під свій дизайн */
+  height: 80px; /* Регулюйте висоту під свій дизайн */
   width: auto;
   object-fit: contain;
 }

@@ -1,17 +1,71 @@
-.car-grid-section {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
+.car-grid-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-.section-title {
-  font-size: 24px;
-  color: #1c3a63;
-  margin-bottom: 20px;
+/* Вкладки перемикання */
+.tabs-navigation {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
 }
 
-.car-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
+.tab-btn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  color: #1e293b;
+  background-color: #f1f5f9;
+}
+
+.tab-btn.active {
+  color: #2563eb;
+  border-bottom: 3px solid #2563eb;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Кнопка обраного на картці */
+.car-image-container {
+  position: relative;
+}
+
+.fav-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.fav-button:hover {
+  transform: scale(1.15);
+  background: #ffffff;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #64748b;
+  font-size: 1.1rem;
 }

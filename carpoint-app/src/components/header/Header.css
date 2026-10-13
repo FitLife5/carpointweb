@@ -1,6 +1,8 @@
-.header {
+.site-header {
   background-color: #ffffff;
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.85rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -9,25 +11,106 @@
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 14px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.header-nav {
+/* Логотип */
+.header-logo {
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: -0.5px;
+}
+
+.logo-accent {
+  color: #2563eb;
+}
+
+/* Правий блок дій */
+.header-actions {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 1rem;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: #212529;
+/* Бедж користувача */
+.user-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #f1f5f9;
+  padding: 0.45rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  color: #334155;
   font-weight: 500;
-  font-size: 15px;
-  transition: color 0.2s;
+  max-width: 200px;
 }
 
-.nav-link:hover {
-  color: #0056b3;
+.user-email {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Загальні стилі кнопок */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* Кнопка + Подати оголошення */
+.btn-add {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.btn-add:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+/* Кнопка Вийти */
+.btn-outline {
+  background-color: transparent;
+  border-color: #cbd5e1;
+  color: #64748b;
+}
+
+.btn-outline:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+  color: #334155;
+}
+
+/* Кнопка Входу */
+.btn-primary {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #1e293b;
 }

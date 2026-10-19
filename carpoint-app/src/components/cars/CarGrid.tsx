@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { useCarContext } from '../../context/CarContext';
+import { CarSkeleton } from './CarSkeleton';
 import './CarGrid.css';
 
 export const CarGrid: React.FC = () => {
-  const { cars, favorites, toggleFavorite, user } = useCarContext();
+  const { cars, favorites, toggleFavorite, user, loading } = useCarContext();
   const [filter, setFilter] = useState<'all' | 'favorites'>('all');
 
-  const displayedCars = filter === 'favorites' 
-    ? cars.filter((car) => favorites.includes(car.id)) 
+  const displayedCars = filter === 'favorites'
+    ? cars.filter((car) => favorites.includes(car.id))
     : cars;
 
   return (
     <div className="car-grid-container">
-      {/* Перемикач вкладок */}
+      {/* Навігація вкладок */}
       <div className="tabs-navigation">
         <button
           className={`tab-btn ${filter === 'all' ? 'active' : ''}`}
@@ -30,19 +31,30 @@ export const CarGrid: React.FC = () => {
         )}
       </div>
 
-      {/* Список авто */}
-      {displayedCars.length === 0 ? (
+      {/* Відображення скелетонів при завантаженні */}
+      {loading ? (
+        <div className="car-grid">
+          {[1, 2, 3, 4, 5, 6].map((n) => (
+            <CarSkeleton key={n} />
+          ))}
+        </div>
+      ) : displayedCars.length === 0 ? (
         <div className="empty-state">
-          {filter === 'favorites' 
-            ? 'У вас поки немає збережених авто.' 
+          {filter === 'favorites'
+            ? 'У вас поки немає збережених авто.'
             : 'Оголошень поки немає.'}
         </div>
       ) : (
         <div className="car-grid">
-          {displayedCars.map((car) => {
+          {displayedCars.map((car, index) => {
             const isFav = favorites.includes(car.id);
             return (
-              <div key={car.id} className="car-card">
+              <div
+                key={car.id}
+                className="car-card"
+                /* Каскадна затримка для ефекту плавного входу (Stagger animation) */
+                style={{ animationDelay: `${index * 0.08}s` }}
+              >
                 <div className="car-image-container">
                   <img src={car.image} alt={car.title} className="car-image" />
                   <button
@@ -56,7 +68,7 @@ export const CarGrid: React.FC = () => {
                 <div className="car-info">
                   <h3>{car.title}, {car.year}</h3>
                   <div className="car-price">
-                    <span className="price-usd">${car.priceUSD.toLocaleString()}</span>
+                    <span className="price-usd">${car.priceUSD.toLocaleString()}</span><br/>
                     <span className="price-uah">{car.priceUAH.toLocaleString()} грн</span>
                   </div>
                   <div className="car-details">
